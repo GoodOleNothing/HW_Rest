@@ -6,4 +6,5 @@ urlpatterns = [
 
 
     path('api/materials/', include('materials.urls', namespace='materials')),
+    path('api/users/', include('users.urls', namespace='users')),
 ]
