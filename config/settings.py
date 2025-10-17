@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
+    'drf_yasg',
+    'corsheaders',
 
     'users',
     'materials',
@@ -60,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -168,9 +172,26 @@ REST_FRAMEWORK = {
     ),
 }
 
-# Настройки срока действия токенов
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=600),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+# CORS
+CORS_ALLOWED_ORIGINS = [
+    "https://read-only.example.com",
+    "https://read-and-write.example.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://read-and-write.example.com",
+]
+
+CORS_ALLOW_ALL_ORIGINS = False
+
+# Stripe service
+
+STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
+STRIPE_BASE_URL = os.getenv("STRIPE_BASE_URL")
