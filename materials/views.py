@@ -1,14 +1,39 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework import generics
-from .models import Course, Lesson
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import Course, Lesson, Subscription
+from .paginators import StandardResultsSetPagination
 from .serializers import CourseSerializer, LessonSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .permissions import IsModerator, IsOwner
+
+
+class SubscriptionAPIView(APIView): # Регистрация подписки
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        course_id = request.data.get('course_id')
+
+        course_item = get_object_or_404(Course, id=course_id)
+        subs_item = Subscription.objects.filter(user=user, course=course_item)
+
+        if subs_item.exists():
+            subs_item.delete()
+            message = "Подписка удалена"
+        else:
+            Subscription.objects.create(user=user, course=course_item)
+            message = "Подписка добавлена"
+
+        return Response({"message": message})
 
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    pagination_class = StandardResultsSetPagination
 
     def get_permissions(self):
         # Определяем права по действию
@@ -33,6 +58,7 @@ class LessonListAPIView(generics.ListAPIView):
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = [IsAuthenticated, IsModerator | IsOwner]
+    pagination_class = StandardResultsSetPagination
 
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
