@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_yasg',
     'corsheaders',
+    'django_celery_beat',
 
     'users',
     'materials',
@@ -171,8 +172,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',  # все эндпоинты по умолчанию защищены
     ),
 }
-
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=600),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
@@ -192,6 +191,15 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = False
 
 # Stripe service
-
 STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
 STRIPE_BASE_URL = os.getenv("STRIPE_BASE_URL")
+
+# Настройки для Celery
+CELERY_BROKER_URL = os.getenv("REDIS_URL")  # URL-адрес брокера сообщений
+CELERY_RESULT_BACKEND = os.getenv("REDIS_URL")  # URL-адрес брокера результатов, также Redis
+CELERY_TIMEZONE = "Asia/Yekaterinburg"  # Часовой пояс для работы Celery
+CELERY_TASK_TRACK_STARTED = True  # Флаг отслеживания выполнения задач
+CELERY_TASK_TIME_LIMIT = 30 * 60  # Максимальное время на выполнение задачи
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

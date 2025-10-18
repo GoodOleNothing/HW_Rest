@@ -8,6 +8,7 @@ from .paginators import StandardResultsSetPagination
 from .serializers import CourseSerializer, LessonSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .permissions import IsModerator, IsOwner
+from materials.tasks import send_course_update_email
 
 
 class SubscriptionAPIView(APIView): # Регистрация подписки
@@ -48,10 +49,14 @@ class CourseViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
-
+    
     def perform_create(self, serializer):
         # Привязываем курс к текущему пользователю
         serializer.save(owner=self.request.user)
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        send_course_update_email.delay(course.id)  # Запускаем асинхронную задачу
 
 
 class LessonListAPIView(generics.ListAPIView):
