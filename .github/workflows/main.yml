@@ -31,16 +31,17 @@ jobs:
           - 6379:6379
 
     env:
-      POSTGRES_HOST: postgres
+      POSTGRES_DB: test_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
-      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      REDIS_URL: redis://redis:6379/1
+      REDIS_URL: redis://localhost:6379/1
       SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -52,19 +53,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      #  задержка чтобы PostgreSQL успел стартовать
+      - name: Wait for PostgreSQL
+        run: |
+          for i in {1..10}; do
+            pg_isready -h localhost -p 5432 -U test_user && break
+            echo "⏳ Waiting for Postgres..."
+            sleep 3
+          done
+
       - name: Run migrations
-        run: python manage.py migrate
+        run: python manage.py migrate --noinput
 
       - name: Run tests
-        run: python manage.py test
+        run: python manage.py test --noinput
 
   deploy:
-    name: Deploy to server
+    name: Deploy to Server
     needs: test
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.8
@@ -78,12 +89,8 @@ jobs:
             git reset --hard HEAD
             git pull origin main
 
-            # Запуск миграций
-            docker-compose run --rm web python manage.py migrate
-
-            # Сборка статики
+            docker-compose run --rm web python manage.py migrate --noinput
             docker-compose run --rm web python manage.py collectstatic --noinput
 
-            # Пересборка и перезапуск контейнеров
             docker-compose down
             docker-compose up -d --build
