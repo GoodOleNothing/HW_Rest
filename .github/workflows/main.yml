@@ -17,9 +17,6 @@ jobs:
           POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
-          REDIS_URL: redis://redis:6379/1
         ports:
           - 5432:5432
         options: >-
@@ -34,6 +31,8 @@ jobs:
           - 6379:6379
 
     env:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
       DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
       REDIS_URL: redis://redis:6379/1
       SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
