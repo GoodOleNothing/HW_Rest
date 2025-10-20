@@ -87,7 +87,7 @@ jobs:
           script: |
             cd /learning_projects/First
             git reset --hard HEAD
-            git pull origin main 
+            git pull origin main
 
             docker-compose run --rm web python manage.py migrate --noinput
             docker-compose run --rm web python manage.py collectstatic --noinput
