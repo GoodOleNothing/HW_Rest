@@ -186,6 +186,8 @@ CORS_ALLOWED_ORIGINS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://read-and-write.example.com",
+    "http://84.201.136.50",
+    "http://84.201.136.50:8000",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False

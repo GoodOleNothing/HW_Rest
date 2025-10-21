@@ -1,0 +1,428 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2025-10-16T00:13:33.171Z",
+        "user": 2,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Moderator",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2025-10-16T00:22:47.201Z",
+        "user": 2,
+        "content_type": 6,
+        "object_id": "2",
+        "object_repr": "admin@example.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2025-10-16T00:28:18.802Z",
+        "user": 2,
+        "content_type": 6,
+        "object_id": "4",
+        "object_repr": "test2@test.com",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2025-10-16T23:32:47.407Z",
+        "user": 2,
+        "content_type": 6,
+        "object_id": "2",
+        "object_repr": "admin@example.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2025-10-16T23:32:53.523Z",
+        "user": 2,
+        "content_type": 6,
+        "object_id": "4",
+        "object_repr": "test2@test.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Moderator",
+        "permissions": [
+            26,
+            28,
+            30,
+            32
+        ]
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "k325zjg5chraddzfrrriwghw8igg9p65",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RBYytJ69N43kF3Y2qqBpLQn499Nkx70OjOZt4q0b3Pcm6xxyeqqQF1-GVN6SjlEflC5V51q2daF9ZHo0zY91iyv29n-DWZq87GdAg8ePcBkXGCBxGFwjowhQGbM3AfswSKB9yIGIInriCboLNoe1ecLzwQ3Lg:1v9BW3:tDUASb-LyV9xErjyIm3OKjHGWXMIG4NaroP5Qy7T_to",
+        "expire_date": "2025-10-30T00:06:47.103Z"
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$gdQLDa3zgdbWhRXDfH0Hq6$yp8SZRtkGqqHTWrtnG+xrtWGIq4Ey1xBgTV5y1RAvfs=",
+        "last_login": "2025-10-16T00:06:47Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "date_joined": "2025-10-15T23:26:55Z",
+        "email": "admin@example.com",
+        "phone": null,
+        "avatar": "",
+        "city": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "admin",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2025-10-16T00:27:49Z",
+        "email": "test2@test.com",
+        "phone": null,
+        "avatar": "",
+        "city": null,
+        "is_active": true,
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$JvwT1HhBQqQuSekC4nwnrO$Lk6BDAGUXokVupeTNM+1Xp4VCKDUToCXbVOGar43WM0=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2025-10-17T00:38:11.274Z",
+        "email": "test3@test.com",
+        "phone": null,
+        "avatar": "",
+        "city": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T06:58:47.139Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "2500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": null,
+        "stripe_price_id": null,
+        "stripe_session_id": null,
+        "stripe_payment_url": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 2,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:00:57.238Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "2500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFcuYNjWNDFiGc",
+        "stripe_price_id": "price_1SJ7epBWc0W1tb48SeRAeROe",
+        "stripe_session_id": "cs_test_a1t93YQvMWfltmzgf25iaSy2CUPz5QJ149DryPQAV92xkwYFwcx0KGDLG1",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1t93YQvMWfltmzgf25iaSy2CUPz5QJ149DryPQAV92xkwYFwcx0KGDLG1#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:02:48.720Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "2500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFcwrJXlGe88IC",
+        "stripe_price_id": "price_1SJ7gcBWc0W1tb48xuY8H6xv",
+        "stripe_session_id": "cs_test_a1ggGQ6MHIW2XcDWSPspnWPhVILb8rr7SLZigEApNOworSUadEZe9e6jss",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1ggGQ6MHIW2XcDWSPspnWPhVILb8rr7SLZigEApNOworSUadEZe9e6jss#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 4,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:09:28.938Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "2500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFd3yjSE1gqgUk",
+        "stripe_price_id": "price_1SJ7n4BWc0W1tb48AL5prnaR",
+        "stripe_session_id": "cs_test_a1nWC9UusQBXsVHpAN8wV29xBO61F8DrxgY2UyTNLW0ovWKlOkEJqeqbuB",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1nWC9UusQBXsVHpAN8wV29xBO61F8DrxgY2UyTNLW0ovWKlOkEJqeqbuB#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 5,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:11:02.861Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "2500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFd474i5YfYFlb",
+        "stripe_price_id": "price_1SJ7oaBWc0W1tb48SOZSQCjp",
+        "stripe_session_id": "cs_test_a1ZavsyQMSCXaaob7gozT1ntB9qj5KoiL3i9KFcb8KoDcBuwlkN3sv74Uj",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1ZavsyQMSCXaaob7gozT1ntB9qj5KoiL3i9KFcb8KoDcBuwlkN3sv74Uj#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 6,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:25:09.552Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "5500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": null,
+        "stripe_price_id": null,
+        "stripe_session_id": null,
+        "stripe_payment_url": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 7,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:26:38.911Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "5500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": null,
+        "stripe_price_id": null,
+        "stripe_session_id": null,
+        "stripe_payment_url": null
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 8,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:28:03.101Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "5500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFdLh0RgbzWRr1",
+        "stripe_price_id": "price_1SJ853BWc0W1tb48UO6lVxe2",
+        "stripe_session_id": "cs_test_a1Hi7Tq6Km8QV1BTonPCKx6HmNlX6veTmNBwz5t0kjSAg2z9be00DrpNRt",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1Hi7Tq6Km8QV1BTonPCKx6HmNlX6veTmNBwz5t0kjSAg2z9be00DrpNRt#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 9,
+    "fields": {
+        "user": 2,
+        "date": "2025-10-17T07:28:49.807Z",
+        "course": 1,
+        "lesson": null,
+        "amount": "5500.00",
+        "payment_method": "transfer",
+        "stripe_product_id": "prod_TFdMYCRbHXj2tu",
+        "stripe_price_id": "price_1SJ85nBWc0W1tb48As8uafZO",
+        "stripe_session_id": "cs_test_a1Tg5Ie80BcTICDB9LGWh2uljDdF0LsIjYuc3aEKB52qd8lrDKEockTWwl",
+        "stripe_payment_url": "https://checkout.stripe.com/c/pay/cs_test_a1Tg5Ie80BcTICDB9LGWh2uljDdF0LsIjYuc3aEKB52qd8lrDKEockTWwl#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VkxdMlNHUmY1UjRxZzE9RHVBaHZvUDdPPWpcVkpLMlY1REYwTlRNSkQ0SXVsS2lkXUNVSnZfbG5WUWRocTRjMFBKZ0xrd1JDQUd0bnAzXW1zYUNcb09ANTUzYjA9YnJIYScpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl"
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 1,
+    "fields": {
+        "title": "English",
+        "preview": "",
+        "description": "english lessons",
+        "owner": null,
+        "updated_at": "2025-10-18T02:03:46.561Z"
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 3,
+    "fields": {
+        "title": "Japaniese",
+        "preview": "",
+        "description": "Japaniese lessons",
+        "owner": null,
+        "updated_at": "2025-10-18T02:03:46.561Z"
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+        "title": "spanish",
+        "preview": "",
+        "description": "spanish lessons",
+        "owner": null,
+        "updated_at": "2025-10-18T02:03:46.561Z"
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 5,
+    "fields": {
+        "title": "celery course",
+        "preview": "",
+        "description": "celery course description 3",
+        "owner": 5,
+        "updated_at": "2025-10-18T02:04:33.331Z"
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 1,
+    "fields": {
+        "course": 4,
+        "title": "start spanish",
+        "description": "start spanish lessons",
+        "preview": "",
+        "video_url": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 2,
+    "fields": {
+        "course": 1,
+        "title": "start english",
+        "description": "start english lessons",
+        "preview": "",
+        "video_url": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 3,
+    "fields": {
+        "course": 3,
+        "title": "start jap",
+        "description": "start jap lessons",
+        "preview": "",
+        "video_url": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 7,
+    "fields": {
+        "course": 1,
+        "title": "adv english",
+        "description": "adv english lessons",
+        "preview": "",
+        "video_url": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 8,
+    "fields": {
+        "course": 1,
+        "title": "Test lesson",
+        "description": "",
+        "preview": "",
+        "video_url": "",
+        "owner": 2
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 9,
+    "fields": {
+        "course": 1,
+        "title": "Test2 lesson",
+        "description": "",
+        "preview": "",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "owner": 2
+    }
+},
+{
+    "model": "materials.subscription",
+    "pk": 2,
+    "fields": {
+        "user": 5,
+        "course": 1,
+        "created_at": "2025-10-17T00:44:23.930Z"
+    }
+},
+{
+    "model": "materials.subscription",
+    "pk": 3,
+    "fields": {
+        "user": 5,
+        "course": 5,
+        "created_at": "2025-10-18T01:46:16.911Z"
+    }
+}
+]
