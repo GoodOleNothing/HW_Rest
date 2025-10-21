@@ -85,7 +85,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /learning_projects/First
+            cd /learning_projects/First/HW_Rest
             git reset --hard HEAD
             git pull origin main
 
